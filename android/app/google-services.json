@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "242727699649",
+    "project_id": "flutterproject-48bf4",
+    "storage_bucket": "flutterproject-48bf4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242727699649:android:7023d59f8793fc80b40040",
+        "android_client_info": {
+          "package_name": "com.example.mecha_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiDCeHgpFKLzZO6s4fRVYETR1t2uD95a0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

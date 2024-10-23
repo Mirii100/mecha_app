@@ -1,0 +1,36 @@
+name: mecha_app
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Cupertino Icons for iOS style icons
+  cupertino_icons: ^1.0.8
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+  firebase_storage: ^12.3.4
+  image_picker: ^1.1.2
+  google_maps_flutter: ^2.9.0
+  google_maps_flutter_web: ^0.5.10
+  google_maps_flutter_android: ^2.14.10
+  location: ^7.0.1
+  geoflutterfire_plus: ^0.0.30 # Make sure this is the latest version
+  firebase_data_connect: ^0.1.2+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/
