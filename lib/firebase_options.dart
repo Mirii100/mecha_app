@@ -41,49 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCBq2dVBRFXKEea9aA67feuQV5XARAJ3gg',
-    appId: '1:242727699649:web:248ab85a928452f8b40040',
-    messagingSenderId: '242727699649',
-    projectId: 'flutterproject-48bf4',
-    authDomain: 'flutterproject-48bf4.firebaseapp.com',
-    storageBucket: 'flutterproject-48bf4.appspot.com',
-    measurementId: 'G-M4Z4FTEP2E',
+    apiKey: 'AIzaSyC-9eHomnu9bryiKTOf6azMR7ZC7wgEnTU',
+    appId: '1:935332776626:web:b9fd64ac2d5c889ce317ab',
+    messagingSenderId: '935332776626',
+    projectId: 'mechaapp-5a0bf',
+    authDomain: 'mechaapp-5a0bf.firebaseapp.com',
+    storageBucket: 'mechaapp-5a0bf.appspot.com',
+    measurementId: 'G-3QKBD836S7',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBiDCeHgpFKLzZO6s4fRVYETR1t2uD95a0',
-    appId: '1:242727699649:android:7023d59f8793fc80b40040',
-    messagingSenderId: '242727699649',
-    projectId: 'flutterproject-48bf4',
-    storageBucket: 'flutterproject-48bf4.appspot.com',
+    apiKey: 'AIzaSyAUjzWiGYgOGYdoQxTj_UQXkmAAnQN_azw',
+    appId: '1:935332776626:android:279793782af9021fe317ab',
+    messagingSenderId: '935332776626',
+    projectId: 'mechaapp-5a0bf',
+    storageBucket: 'mechaapp-5a0bf.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC_edPUWbndb_M7kdNxAOBmSKZ8Y6Y19QA',
-    appId: '1:242727699649:ios:d9d2fed790ef3dddb40040',
-    messagingSenderId: '242727699649',
-    projectId: 'flutterproject-48bf4',
-    storageBucket: 'flutterproject-48bf4.appspot.com',
+    apiKey: 'AIzaSyCBRH-SretiEXI1Z9QH1DWWUDekE1-o8PA',
+    appId: '1:935332776626:ios:0eea4547101f055ce317ab',
+    messagingSenderId: '935332776626',
+    projectId: 'mechaapp-5a0bf',
+    storageBucket: 'mechaapp-5a0bf.appspot.com',
     iosBundleId: 'com.example.mechaApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC_edPUWbndb_M7kdNxAOBmSKZ8Y6Y19QA',
-    appId: '1:242727699649:ios:d9d2fed790ef3dddb40040',
-    messagingSenderId: '242727699649',
-    projectId: 'flutterproject-48bf4',
-    storageBucket: 'flutterproject-48bf4.appspot.com',
+    apiKey: 'AIzaSyCBRH-SretiEXI1Z9QH1DWWUDekE1-o8PA',
+    appId: '1:935332776626:ios:0eea4547101f055ce317ab',
+    messagingSenderId: '935332776626',
+    projectId: 'mechaapp-5a0bf',
+    storageBucket: 'mechaapp-5a0bf.appspot.com',
     iosBundleId: 'com.example.mechaApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCBq2dVBRFXKEea9aA67feuQV5XARAJ3gg',
-    appId: '1:242727699649:web:c3bc6eb6f11cab87b40040',
-    messagingSenderId: '242727699649',
-    projectId: 'flutterproject-48bf4',
-    authDomain: 'flutterproject-48bf4.firebaseapp.com',
-    storageBucket: 'flutterproject-48bf4.appspot.com',
-    measurementId: 'G-6GEB6SMTK2',
+    apiKey: 'AIzaSyC-9eHomnu9bryiKTOf6azMR7ZC7wgEnTU',
+    appId: '1:935332776626:web:3771a6bec38763c1e317ab',
+    messagingSenderId: '935332776626',
+    projectId: 'mechaapp-5a0bf',
+    authDomain: 'mechaapp-5a0bf.firebaseapp.com',
+    storageBucket: 'mechaapp-5a0bf.appspot.com',
+    measurementId: 'G-9Z1WHF74FQ',
   );
 
 }

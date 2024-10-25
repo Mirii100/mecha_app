@@ -3,6 +3,7 @@ plugins {
     id "kotlin-android"
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
 }
 
 android {
@@ -70,6 +71,8 @@ android {
 dependencies {
     implementation 'com.google.firebase:firebase-auth:23.1.0' // Example Firebase Auth
     implementation 'com.google.firebase:firebase-firestore:25.1.1' // Example Firestore
+
+
 }
 
 

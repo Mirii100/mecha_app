@@ -24,6 +24,8 @@ dependencies:
   location: ^7.0.1
   geoflutterfire_plus: ^0.0.30 # Make sure this is the latest version
   firebase_data_connect: ^0.1.2+1
+  firebase_authentication: ^0.0.29
+  flutter_hooks: ^0.20.5
 
 dev_dependencies:
   flutter_test:
