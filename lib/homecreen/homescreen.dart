@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:location/location.dart';
+import 'package:mecha_app/signup_login/signup.dart';
+
+import '../fetch/map.dart';
+import '../user_engineer/engineer.dart';
+import 'about_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -47,7 +52,65 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Welcome to Home'),
+        actions: [
+          FloatingActionButton(
+          onPressed: () {
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => SignUpScreen()),
+    );
+    },
+      child:Icon(Icons.account_circle),
+      tooltip: "login and  signup",),
+          Center(
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutPage()),
+                );
+              },
+              child:Icon(Icons.question_mark_outlined),
+              tooltip: "Go to About Page",
+            ),),
+          Center(
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>EngineerProfileUploadScreen()),
+                );
+              },
+              child:Icon(Icons.military_tech_outlined),
+              tooltip: "mechanic around you",
+            ),),
+
+          Center(
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutPage()),
+                );
+              },
+              child:Icon(Icons.question_mark_outlined),
+              tooltip: "Go to About Page",
+            ),),
+          Center(
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapScreen()),
+                );
+              },
+              child:Icon(Icons.more),
+              tooltip: "Go to my map",
+            ),),
+
+
+        ],
       ),
       body: Stack(
         children: [
@@ -97,12 +160,15 @@ class _HomeScreenState extends State<HomeScreen> {
             right: 20,
             child: FloatingActionButton(
               onPressed: () {
+                Navigator.pushNamed(context, '/home');
                 // Request help logic or navigate to help screen
               },
               child: Icon(Icons.engineering),
               tooltip: 'Find Engineer',
             ),
+
           ),
+
         ],
       ),
     );

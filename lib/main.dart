@@ -3,9 +3,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mecha_app/signup_login/login.dart';
 import 'package:mecha_app/signup_login/signup.dart';
+import 'fetch/fetcher_mechanic.dart';
+import 'fetch/map.dart';
 import 'firebase_options.dart';
 
+import 'homecreen/about_screen.dart';
 import 'homecreen/homescreen.dart';
+import 'homecreen/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,11 +49,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Vehicle Tracker App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginScreen(),
+      home: WelcomeScreen(),
       routes: {
         '/LoginScreen': (context) => LoginScreen(),
+        '/mechanic': (context) => NearbyMechanicsScreen(),
+        '/SignUpScreen': (context) => SignUpScreen(),
+        '/about': (context) => AboutPage(),
         '/home': (context) => HomeScreen(),
-        '/SignUpScreen': (context) => SignUpScreen(), // Register the SignUpScreen route
+        '/my map': (context) => MapScreen(),// Register the SignUpScreen route
       },
     );
   }
