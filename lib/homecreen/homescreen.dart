@@ -5,6 +5,7 @@ import 'package:location/location.dart';
 import 'package:mecha_app/signup_login/signup.dart';
 
 import '../fetch/map.dart';
+import '../infor/list_of_engineers.dart';
 import '../user_engineer/engineer.dart';
 import 'about_screen.dart';
 
@@ -91,11 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AboutPage()),
+                  MaterialPageRoute(builder: (context) => MechanicsListScreen()),
                 );
               },
-              child:Icon(Icons.question_mark_outlined),
-              tooltip: "Go to About Page",
+              child:Icon(Icons.engineering_outlined),
+              tooltip: "navigate to list of mechanics",
             ),),
           Center(
             child: FloatingActionButton(

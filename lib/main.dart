@@ -10,6 +10,7 @@ import 'firebase_options.dart';
 import 'homecreen/about_screen.dart';
 import 'homecreen/homescreen.dart';
 import 'homecreen/welcome_screen.dart';
+import 'infor/list_of_engineers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
         '/SignUpScreen': (context) => SignUpScreen(),
         '/about': (context) => AboutPage(),
         '/home': (context) => HomeScreen(),
+        '/details': (context) => MechanicsListScreen(),
         '/my map': (context) => MapScreen(),// Register the SignUpScreen route
       },
     );

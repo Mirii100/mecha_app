@@ -13,7 +13,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     {
       "title": "Welcome to Our App",
       "description": "Explore the best services we offer.",
-      "image": "images/image2.jpg"
+      "image": "images/my_image.jpg"
     },
     {
       "title": "Connect with Experts",
