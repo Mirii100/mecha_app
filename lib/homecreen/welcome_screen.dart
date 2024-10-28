@@ -11,12 +11,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   List<Map<String, String>> welcomeData = [
     {
-      "title": "Welcome to Our App",
+      "title": "Welcome to mecha App",
       "description": "Explore the best services we offer.",
       "image": "images/my_image.jpg"
     },
     {
-      "title": "Connect with Experts",
+      "title": "Connect with  Mecha-app Experts",
       "description": "Find professionals to help with your needs.",
       "image": "images/my_image.jpg"
 
@@ -31,12 +31,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       "image": "images/my_image2.jpg"
     },
     {
-      "title": "Stay Updated",
-      "description": "Get real-time updates and notifications.",
+      "title": "feed",
+      "description": "do not ever feel furious when letting us know  your concerns   .this is a platform where everyone is "
+          "someone",
       "image": "images/my_image2.jpg"
     },
     {
-      "title": "Stay Updated",
+      "title": "Stay Updated with our contents at Mecha_app",
       "description": "Get real-time updates and notifications.",
       "image": "images/my_image2.jpg"
     },
@@ -81,6 +82,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                _pageController.nextPage(
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.ease,
+                );
+              },
+            ),
             TextButton(
               onPressed: () {
                 _pageController.animateToPage(

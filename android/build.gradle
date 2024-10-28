@@ -1,32 +1,4 @@
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.buildDir = "../build"
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
-
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
-}
-
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0' // Adjust to your required Gradle version
-        classpath 'com.google.gms:google-services:4.3.10' // Add this line for Firebase
-    }
-}
+// Root project build file
 
 allprojects {
     repositories {
@@ -39,6 +11,7 @@ rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
+
 subprojects {
     project.evaluationDependsOn(":app")
 }
@@ -46,11 +19,15 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+// Only buildscript block is required here for classpath dependencies
 buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
     dependencies {
-        classpath 'com.google.gms:google-services:4.4.2'
-        implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
-        implementation("com.google.firebase:firebase-analytics")
+        classpath 'com.android.tools.build:gradle:7.0.4' // Adjust to your required Gradle version
+        classpath 'com.google.gms:google-services:4.4.2' // Firebase plugin
     }
 }
-
