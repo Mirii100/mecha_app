@@ -63,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       bottomSheet: _currentPage == welcomeData.length - 1
           ? TextButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, '/LoginScreen');
         },
         style: TextButton.styleFrom(
           backgroundColor: Colors.blue,

@@ -4,6 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -12,6 +13,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // Firestore instance
+
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -27,13 +30,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
       );
 
       if (userCredential.user != null && idImage != null) {
+        // Save user data to Firestore
+        await _firestore.collection('users').doc(userCredential.user!.uid).set({
+          'name': nameController.text.trim(),
+          'email': emailController.text.trim(),
+          'phone': phoneController.text.trim(),
+          'createdAt': Timestamp.now(),
+        });
+
         await uploadID(userCredential.user!.uid);
         Navigator.pushReplacementNamed(context, '/home');
-      }else{
-        print('user creation or ID image upload failed');
+      } else {
+        print('User creation or ID image upload failed');
       }
     } catch (e) {
-      print( 'Signup error :$e');
+      print('Signup error: $e');
     }
   }
 

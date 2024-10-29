@@ -1,18 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'editMechanicProfile.dart';
 import 'my_engineer.dart';
 
-class MechanicProfileScreen extends StatelessWidget {
+class MechanicProfileScreen extends StatefulWidget {
   final Mechanic mechanic;
 
   MechanicProfileScreen({required this.mechanic});
 
   @override
+  State<MechanicProfileScreen> createState() => _MechanicProfileScreenState();
+}
+
+class _MechanicProfileScreenState extends State<MechanicProfileScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(mechanic.name),
+        title: Text(widget.mechanic.name),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -21,39 +27,39 @@ class MechanicProfileScreen extends StatelessWidget {
             Center(
               child: CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage(mechanic.profilePic),
+                backgroundImage: AssetImage(widget.mechanic.profilePic),
               ),
             ),
             SizedBox(height: 16),
             Center(
               child: Text(
-                mechanic.name,
+                widget.mechanic.name,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(height: 8),
             Text(
-              "Location: ${mechanic.location} (${mechanic.distance} km away)",
+              "Location: ${widget.mechanic.location} (${widget.mechanic.distance} km away)",
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 8),
             Text(
-              "Specializations: ${mechanic.specializations}",
+              "Specializations: ${widget.mechanic.specializations}",
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 8),
             Text(
-              "Experience: ${mechanic.experience}",
+              "Experience: ${widget.mechanic.experience}",
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 8),
             Text(
-              "Contact: ${mechanic.contact}",
+              "Contact: ${widget.mechanic.contact}",
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 8),
             Text(
-              "Availability: ${mechanic.availability}",
+              "Availability: ${widget.mechanic.availability}",
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 16),
@@ -61,7 +67,7 @@ class MechanicProfileScreen extends StatelessWidget {
               "Documents",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            for (var doc in mechanic.documents)
+            for (var doc in widget.mechanic.documents)
               ListTile(
                 title: Text(doc),
                 trailing: Icon(Icons.download),
@@ -74,6 +80,24 @@ class MechanicProfileScreen extends StatelessWidget {
           ],
         ),
       ),
+      // Inside MechanicProfileScreen
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EditMechanicScreen(mechanic: widget.mechanic),
+            ),
+          ).then((updatedMechanic) {
+            if (updatedMechanic != null) {
+              // Update the profile with the new details
+              // You may need to fetch the latest data from Firestore or update the UI directly
+            }
+          });
+        },
+        child: Icon(Icons.edit),
+      ),
+
     );
   }
 }

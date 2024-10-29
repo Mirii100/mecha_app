@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'forgot-password.dart';
+// Import the Forgot Password screen
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -50,6 +52,14 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Logo at the center of the page
+            Image.asset(
+              'images/image2.jpg', // Ensure your logo is placed in the assets folder and the path is correct
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(height: 24.0), // Space between logo and email field
             TextField(
               controller: emailController,
               decoration: InputDecoration(
@@ -76,6 +86,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.pushNamed(context, '/SignUpScreen'); // Navigate to sign up
               },
               child: Text('Sign Up'),
+            ),
+            // Added Forgot Password button
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
+                );
+              },
+              child: Text('Forgot Password?'),
             ),
           ],
         ),

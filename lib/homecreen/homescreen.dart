@@ -6,7 +6,9 @@ import 'package:mecha_app/signup_login/signup.dart';
 
 import '../fetch/map.dart';
 import '../infor/list_of_engineers.dart';
+import '../signup_login/login.dart';
 import '../user_engineer/engineer.dart';
+import '../vehicle/api.dart';
 import 'about_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -59,11 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {
     Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => SignUpScreen()),
+    MaterialPageRoute(builder: (context) =>VehicleScanScreen()),
     );
     },
       child:Icon(Icons.account_circle),
-      tooltip: "login and  signup",),
+      tooltip: "vehicle screen scan",),
           Center(
             child: FloatingActionButton(
               onPressed: () {
@@ -161,11 +163,25 @@ class _HomeScreenState extends State<HomeScreen> {
             right: 20,
             child: FloatingActionButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/findEngineer');
                 // Request help logic or navigate to help screen
               },
               child: Icon(Icons.engineering),
               tooltip: 'Find Engineer',
+            ),
+
+          ),
+
+          Positioned(
+            bottom: 80,
+            right: 20,
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.pushNamed(context,'/register');
+                // Request help logic or navigate to help screen
+              },
+              child: Icon(Icons.network_wifi_2_bar_rounded),
+              tooltip: 'register Engineer',
             ),
 
           ),
