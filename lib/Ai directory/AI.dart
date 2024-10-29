@@ -17,6 +17,7 @@ class _AIProblemDetectionScreenState extends State<AIProblemDetectionScreen> {
   Future<void> _pickImage() async {
     final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
+      setState(() {
         _imagePath = pickedFile.path;
       });
       _detectProblem(_imagePath!);
