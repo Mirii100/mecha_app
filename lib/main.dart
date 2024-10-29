@@ -5,6 +5,7 @@ import 'package:mecha_app/signup_login/login.dart';
 import 'package:mecha_app/signup_login/signup.dart';
 import 'package:mecha_app/user_engineer/engineer.dart';
 import 'package:mecha_app/user_engineer/register_mechanic.dart';
+import 'Ai directory/AI.dart';
 import 'fetch/fetcher_mechanic.dart';
 import 'fetch/map.dart';
 import 'firebase_options.dart';
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Vehicle Tracker App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: WelcomeScreen(),
+      home: 
+      WelcomeScreen(),
       routes: {
         '/register': (context) => RegisterMechanicScreen(),
         '/LoginScreen': (context) => LoginScreen(),
@@ -58,7 +60,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomeScreen(),
         '/findEngineer': (context) => MechanicsListScreen(),
         '/details': (context) => EngineerProfileUploadScreen(),
-        '/my map': (context) => MapScreen(),// Register the SignUpScreen route
+        '/my map': (context) => MapScreen(),
+        '/Ai': (context) => AIProblemDetectionScreen(),// Register the SignUpScreen route
       },
     );
   }

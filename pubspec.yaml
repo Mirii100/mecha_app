@@ -26,6 +26,7 @@ dependencies:
   firebase_data_connect: ^0.1.2+1
   firebase_authentication: ^0.0.29
   flutter_hooks: ^0.20.5
+  geolocator: ^13.0.1
 
 dev_dependencies:
   flutter_test:
