@@ -22,16 +22,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Future<void> signUp() async {
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
 
       if (userCredential.user != null && idImage != null) {
         await uploadID(userCredential.user!.uid);
         Navigator.pushReplacementNamed(context, '/home');
+      }else{
+        print('user creation or ID image upload failed');
       }
     } catch (e) {
-      print(e);
+      print( 'Signup error :$e');
     }
   }
 
@@ -39,8 +41,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     try {
       final ref = FirebaseStorage.instance.ref().child('users/$uid/id');
       await ref.putFile(idImage!);
+      print('ID uploaded successfully');
     } catch (e) {
-      print(e);
+      print('Upload error: $e');
     }
   }
 

@@ -22,12 +22,16 @@ tasks.register("clean", Delete) {
 
 // Only buildscript block is required here for classpath dependencies
 buildscript {
+    ext.kotlin_version = '1.7.10'
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
+       classpath'com.google.gms.google-services:4.4.2'
         classpath 'com.android.tools.build:gradle:7.0.4' // Adjust to your required Gradle version
-        classpath 'com.google.gms:google-services:4.4.2' // Firebase plugin
+        classpath 'com.google.gms:google-services:4.4.2'
+        classpath 'com.android.tools.build:gradle:7.2.2' // Or a compatible version with Flutter
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"// Firebase plugin
     }
 }

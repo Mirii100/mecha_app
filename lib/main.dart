@@ -15,23 +15,16 @@ import 'infor/list_of_engineers.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase with FirebaseOptions
- // await Firebase.initializeApp(
-   // options: FirebaseOptions(
-     // apiKey: "AIzaSyC-9eHomnu9bryiKTOf6azMR7ZC7wgEnTU",
-      //appId: "1:935332776626:web:b9fd64ac2d5c889ce317ab",
-      //messagingSenderId: "935332776626",
-      //projectId: "flutterproject-48bf4",
-      //storageBucket: "flutterproject-48bf4.appspot.com",
-    //),
- // );
+
 if(kIsWeb){
   await Firebase.initializeApp(
     options: FirebaseOptions(
-        apiKey:"AIzaSyC-9eHomnu9bryiKTOf6azMR7ZC7wgEnTU",
-        appId: "1:935332776626:web:b9fd64ac2d5c889ce317ab",
-        messagingSenderId: "935332776626",
-        projectId: "mechaapp-5a0bf"
+        apiKey: "AIzaSyB5n1eGqZNyaWCaamWCp7MklfX-unR8Ckg",
+        authDomain: "mecha-application.firebaseapp.com",
+        projectId: "mecha-application",
+        storageBucket: "mecha-application.appspot.com",
+        messagingSenderId: "700065310863",
+        appId: "1:700065310863:web:81a271f9d027cdc1a128fa"
     )
 );}else{
  await  Firebase.initializeApp();

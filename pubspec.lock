@@ -229,10 +229,10 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_authentication
-      sha256: "8b70f4b747b7c0a0a4955dbd6003acd190df848d75656a60e6c28b8d90b35298"
+      sha256: f32bbc96f03506cdc18be17bc2d64bb3b59d195cf69aaa62868bf853c088f4e0
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.29"
+    version: "0.0.30"
   firebase_core:
     dependency: "direct main"
     description:
@@ -580,10 +580,10 @@ packages:
     dependency: transitive
     description:
       name: image_picker_android
-      sha256: d34e0d9e024e81321b2aeed7b202ec6181cc282e6a1c0c0b4e6ad07ef1065d82
+      sha256: "8faba09ba361d4b246dc0a17cb4289b3324c2b9f6db7b3d457ee69106a86bd32"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.12+16"
+    version: "0.8.12+17"
   image_picker_for_web:
     dependency: transitive
     description:
@@ -961,10 +961,10 @@ packages:
     dependency: transitive
     description:
       name: win32
-      sha256: e1d0cc62e65dc2561f5071fcbccecf58ff20c344f8f3dc7d4922df372a11df1f
+      sha256: "10169d3934549017f0ae278ccb07f828f9d6ea21573bab0fb77b0e1ef0fce454"
       url: "https://pub.dev"
     source: hosted
-    version: "5.7.1"
+    version: "5.7.2"
   xdg_directories:
     dependency: transitive
     description:
