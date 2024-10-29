@@ -71,6 +71,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+        titleTextStyle: TextStyle(color: Colors.white),
         title: Text('Sign Up'),
       ),
       body: Padding(
@@ -81,6 +84,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextField(
                 controller: nameController,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.person),
                   labelText: 'Name',
                   border: OutlineInputBorder(),
                 ),
@@ -89,6 +93,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(
+                  prefixIconColor: Colors.blue,
+                  prefixIcon: Icon(Icons.email),
                   labelText: 'Email',
                   border: OutlineInputBorder(),
                 ),
@@ -97,6 +103,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextField(
                 controller: phoneController,
                 decoration: InputDecoration(
+                  prefixIconColor: Colors.blue,
+                  prefixIcon: Icon(Icons.phone_iphone),
+                  hintText: "987654",
                   labelText: 'Phone Number',
                   border: OutlineInputBorder(),
                 ),
@@ -105,6 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextField(
                 controller: passwordController,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.password_sharp),
                   labelText: 'Password',
                   border: OutlineInputBorder(),
                 ),

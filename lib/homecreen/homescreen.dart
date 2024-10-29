@@ -55,7 +55,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome to Home'),
+        backgroundColor: Colors.blue,
+        titleTextStyle: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),
+        centerTitle: true,
+        titleSpacing: 2,
+
+
+        title: Text('Welcome to Homepage of mecha Application '),
         actions: [
           FloatingActionButton(
           onPressed: () {

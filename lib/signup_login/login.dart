@@ -44,7 +44,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
+        backgroundColor: Colors.blue,
+        titleTextStyle: TextStyle(color: Colors.white,fontSize: 20),
+        centerTitle: true,
+
         title: Text('Login'),
       ),
       body: Padding(
@@ -63,14 +68,24 @@ class _LoginScreenState extends State<LoginScreen> {
             TextField(
               controller: emailController,
               decoration: InputDecoration(
+
+                prefixIcon: Icon(Icons.email_rounded),
+                prefixIconColor: Colors.blue,
+                hintText: "yahoo.com",
                 labelText: 'Email',
                 border: OutlineInputBorder(),
+
+              ),
+              style: TextStyle(
+
               ),
             ),
             SizedBox(height: 16.0),
             TextField(
               controller: passwordController,
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.password),
+                prefixIconColor: Colors.blue,
                 labelText: 'Password',
                 border: OutlineInputBorder(),
               ),
