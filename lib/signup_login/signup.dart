@@ -21,6 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController phoneController = TextEditingController();
 
   File? idImage;
+  String message = '';
 
   Future<void> signUp() async {
     try {
@@ -39,12 +40,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
         });
 
         await uploadID(userCredential.user!.uid);
-        Navigator.pushReplacementNamed(context, '/home');
+
+        // Display success message and navigate to login screen
+        setState(() {
+          message = 'Account created successfully! Please log in.';
+        });
+
+        // Navigate to the login screen after a short delay
+        await Future.delayed(Duration(seconds: 2));
+        Navigator.pushReplacementNamed(context, '/LoginScreen');
       } else {
-        print('User creation or ID image upload failed');
+        setState(() {
+          message = 'User creation or ID image upload failed';
+        });
       }
     } catch (e) {
-      print('Signup error: $e');
+      setState(() {
+        message = 'Signup error: $e';
+      });
     }
   }
 
@@ -52,9 +65,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
     try {
       final ref = FirebaseStorage.instance.ref().child('users/$uid/id');
       await ref.putFile(idImage!);
-      print('ID uploaded successfully');
+      setState(() {
+        message = 'ID uploaded successfully';
+      });
     } catch (e) {
-      print('Upload error: $e');
+      setState(() {
+        message = 'Upload error: $e';
+      });
     }
   }
 
@@ -63,6 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (pickedImage != null) {
       setState(() {
         idImage = File(pickedImage.path);
+        message = 'Image selected: ${pickedImage.name}'; // Show selected image name
       });
     }
   }
@@ -126,9 +144,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Text('Upload ID/Passport'),
               ),
               SizedBox(height: 16.0),
+
+              // Display the selected image
+              Container(
+                height: 150,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                ),
+                child: idImage == null
+                    ? Center(child: Text('No image selected'))
+                    : Image.file(idImage!, fit: BoxFit.cover),
+              ),
+              SizedBox(height: 16.0),
+
               ElevatedButton(
                 onPressed: signUp,
                 child: Text('Sign Up'),
+              ),
+
+              // Display the message
+              SizedBox(height: 16.0),
+              Text(
+                message,
+                style: TextStyle(color: Colors.red),
+                textAlign: TextAlign.center,
               ),
             ],
           ),
