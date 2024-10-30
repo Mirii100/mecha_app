@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
         titleTextStyle: TextStyle(color: Colors.white,fontSize: 20),
         centerTitle: true,
 
-        title: Text('Login'),
+        title: Text(' welcome toLogin'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
