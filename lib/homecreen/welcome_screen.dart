@@ -27,13 +27,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
     {
       "title": "Stay Updated",
-      "description": "Get real-time updates and notifications.",
+      "description": "do not hesitate to get updated.",
       "image": "images/my_image2.jpg"
     },
     {
-      "title": "feed",
+      "title": "feedback",
       "description": "do not ever feel furious when letting us know  your concerns   .this is a platform where everyone is "
-          "someone",
+          "someone"
+      "we value your feedback ,welcome",
       "image": "images/my_image2.jpg"
     },
     {
@@ -63,7 +64,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       bottomSheet: _currentPage == welcomeData.length - 1
           ? TextButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, '/role');
+          Navigator.pushReplacementNamed(context, '/LoginScreen');
         },
         style: TextButton.styleFrom(
           backgroundColor: Colors.blue,
@@ -84,6 +85,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: [
             IconButton(
               icon: Icon(Icons.arrow_back),
+
               onPressed: () {
                 _pageController.nextPage(
                   duration: Duration(milliseconds: 500),

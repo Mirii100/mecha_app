@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Vehicle Tracker App',
+
       theme: ThemeData(primarySwatch: Colors.blue),
       home: WelcomeScreen(), // Set the Role Selection Screen as home
       routes: {
