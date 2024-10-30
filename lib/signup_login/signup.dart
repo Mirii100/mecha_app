@@ -1,12 +1,9 @@
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:flutter/foundation.dart'; // Import foundation to check for kIsWeb
+import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -32,7 +29,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         password: passwordController.text.trim(),
       );
 
-      // Save user data to Firestore
       await _firestore.collection('users').doc(userCredential.user!.uid).set({
         'name': nameController.text.trim(),
         'email': emailController.text.trim(),
@@ -40,17 +36,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
         'createdAt': Timestamp.now(),
       });
 
-      // Only upload ID if an image has been selected
       if (idImage != null) {
         await uploadID(userCredential.user!.uid);
       }
 
-      // Display success message and navigate to login screen
       setState(() {
         message = 'Account created successfully! Please log in.';
       });
 
-      // Navigate to the login screen after a short delay
       await Future.delayed(Duration(seconds: 2));
       Navigator.pushReplacementNamed(context, '/LoginScreen');
     } catch (e) {
@@ -78,119 +71,161 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       final file = File(pickedImage.path);
-      // Check if the selected file is a valid image
-      final imageBytes = await file.readAsBytes();
-      final imageType = identifyImageType(imageBytes); // Check if it's a valid image
-
-      if (imageType != null) {
-        setState(() {
-          idImage = file;
-          message = 'Image selected: ${pickedImage.name}';
-        });
-      } else {
-        setState(() {
-          message = 'Selected file is not a valid image.';
-        });
-      }
+      setState(() {
+        idImage = file;
+        message = 'Image selected: ${pickedImage.path.split('/').last}';
+      });
     }
-  }
-
-  String? identifyImageType(Uint8List imageBytes) {
-    // Check the file header bytes for common image formats
-    if (imageBytes.length >= 4) {
-      if (imageBytes[0] == 0xFF && imageBytes[1] == 0xD8) return 'jpg'; // JPEG
-      if (imageBytes[0] == 0x89 && imageBytes[1] == 0x50) return 'png'; // PNG
-      // Add more formats if needed
-    }
-    return null; // Not a valid image format
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-        titleTextStyle: TextStyle(color: Colors.white),
-        title: Text('Sign Up'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              TextField(
-                controller: nameController,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  labelText: 'Name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(height: 16.0),
-              TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  prefixIconColor: Colors.blue,
-                  prefixIcon: Icon(Icons.email),
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(height: 16.0),
-              TextField(
-                controller: phoneController,
-                decoration: InputDecoration(
-                  prefixIconColor: Colors.blue,
-                  prefixIcon: Icon(Icons.phone_iphone),
-                  hintText: "987654",
-                  labelText: 'Phone Number',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(height: 16.0),
-              TextField(
-                controller: passwordController,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.password_sharp),
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
-                ),
-                obscureText: true,
-              ),
-              SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: pickImage,
-                child: Text('Upload ID/Passport (Optional)'),
-              ),
-              SizedBox(height: 16.0),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 32.0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('images/me.jpg',width: 80,height: 80,alignment: Alignment.center,),
+                SizedBox(height: 32.0),
 
-              // Display the selected image based on the platform
-              Container(
-                height: 150,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
+                // Name TextField
+                TextField(
+                  controller: nameController,
+                  decoration: InputDecoration(
+                    hintText: 'Alex',
+                    prefixIcon: Icon(Icons.person),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
                 ),
-                child: idImage == null
-                    ? Center(child: Text('No image selected'))
-                    : Image.file(idImage!, fit: BoxFit.cover),
-              ),
-              SizedBox(height: 16.0),
+                SizedBox(height: 16.0),
 
-              ElevatedButton(
-                onPressed: signUp,
-                child: Text('Sign Up'),
-              ),
+                // Email TextField
+                TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    hintText: 'E-mail',
+                    prefixIcon: Icon(Icons.email),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16.0),
 
-              // Display the message
-              SizedBox(height: 16.0),
-              Text(
-                message,
-                style: TextStyle(color: Colors.red),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                // Phone Number TextField
+                TextField(
+                  controller: phoneController,
+                  decoration: InputDecoration(
+                    hintText: 'Phone Number',
+                    prefixIcon: Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16.0),
+
+                // Password TextField
+                TextField(
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                    hintText: 'Password',
+                    prefixIcon: Icon(Icons.lock),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
+                  obscureText: true,
+                ),
+                SizedBox(height: 16.0),
+
+                // Upload ID Button
+                ElevatedButton(
+                  onPressed: pickImage,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                  ),
+                  child: Text('Upload ID/Passport (Optional)'),
+                ),
+                SizedBox(height: 16.0),
+
+                // Display the selected image
+                Container(
+                  height: 150,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: idImage == null
+                      ? Center(child: Text('No image selected'))
+                      : ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.file(idImage!, fit: BoxFit.cover),
+                  ),
+                ),
+                SizedBox(height: 16.0),
+
+                // Sign Up Button
+                ElevatedButton(
+                  onPressed: signUp,
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 100, vertical: 16),
+                  ),
+                  child: Text('Sign Up'),
+                ),
+                SizedBox(height: 16.0),
+
+                // Divider
+                Text('- OR -', style: TextStyle(color: Colors.grey)),
+                SizedBox(height: 16.0),
+
+                // Google Sign-In Button with Google Logo
+                ElevatedButton.icon(
+                  onPressed: () {
+                    // Google Sign-In logic here
+                  },
+                  icon: Image.asset('images/google_Logo.png', height: 24),
+                  label: Text('Sign in with Google'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      side: BorderSide(color: Colors.grey),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                  ),
+                ),
+                SizedBox(height: 32.0),
+
+                // Footer Text
+                Text(
+                  'developed by Alex ',
+                  style: TextStyle(color: Colors.grey),
+                ),
+
+                SizedBox(height: 16.0),
+
+                // Display message if any
+                Text(
+                  message,
+                  style: TextStyle(color: Colors.red),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
       ),

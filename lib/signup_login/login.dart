@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
         titleTextStyle: TextStyle(color: Colors.white,fontSize: 20),
         centerTitle: true,
 
-        title: Text(' welcome toLogin'),
+        title: Text(' welcome to Login'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -73,7 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 prefixIconColor: Colors.blue,
                 hintText: "yahoo.com",
                 labelText: 'Email',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
 
               ),
               style: TextStyle(
@@ -87,7 +89,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 prefixIcon: Icon(Icons.password),
                 prefixIconColor: Colors.blue,
                 labelText: 'Password',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
               obscureText: true,
             ),
